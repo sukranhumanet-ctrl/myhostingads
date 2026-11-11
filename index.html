@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>myhostingku | Hosting Web Gratis dengan PHP, MySQL, dan Panel Kontrol</title>
+<meta name="description" content="Hosting web gratis dengan PHP, MySQL, dan panel kontrol yang mudah. Daftar tanpa kartu kredit dan mulai online dalam hitungan menit.">
+<meta name="theme-color" content="#0b1f3a">
+<!-- GANTI dengan domain Anda -->
+<link rel="canonical" href="https://myhostingku.vercel.app/">
+<meta name="google-adsense-account" content="ca-pub-8476774265191060">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8476774265191060"
+     crossorigin="anonymous"></script>
+
+<style>
+:root{
+  --navy:#0b1f3a;--navy2:#13335c;--blue:#1e7bff;--cyan:#22d3ee;--bg:#f5f8fc;--card:#fff;
+  --ink:#0f1c2e;--muted:#5b6b80;--line:#dde5ef;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#09111d;--card:#0f1b2d;--ink:#e8eef7;--muted:#94a6bd;--line:#1d2d45}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--font)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+h1,h2,h3{line-height:1.15;margin:0}
+
+/* Header */
+header{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:18px;height:62px}
+.logo{font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:-.01em}
+.logo b{color:var(--cyan)}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{display:block;padding:8px 12px;text-decoration:none;font-size:.95rem;border-radius:6px;color:#d6e2f3}
+nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+nav a.btn{background:var(--blue);color:#fff;font-weight:600}
+nav a.btn:hover{filter:brightness(1.1)}
+@media(max-width:700px){nav li:nth-child(-n+3){display:none}}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:84px 0 96px}
+.hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;letter-spacing:-.025em}
+.hero p.sub{font-size:1.2rem;color:#b9cbe3;margin:16px 0 28px;max-width:46ch}
+.cta{display:inline-block;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;background:var(--cyan);color:#06222b}
+.cta:hover{filter:brightness(1.08)}
+.cta.ghost{background:transparent;border:2px solid #3b5a85;color:#fff;margin-left:10px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:16px}
+.chip strong{display:block;font-size:1.5rem;color:var(--cyan);line-height:1.1}
+.chip span{font-size:.92rem;color:#c3d3e8}
+
+/* Sections */
+section{padding:72px 0}
+.title{text-align:center;margin-bottom:44px}
+.title h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;letter-spacing:-.02em}
+.title p{color:var(--muted);margin:10px auto 0;max-width:56ch}
+.cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}
+.card .ic{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));margin-bottom:16px}
+.card h3{font-size:1.15rem;margin-bottom:6px}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+
+/* Harga */
+.price{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plan{max-width:520px;margin:0 auto;text-align:center;border:2px solid var(--blue);border-radius:16px;padding:40px 28px;background:var(--bg)}
+.plan .amt{font-size:3.4rem;font-weight:800;letter-spacing:-.03em}
+.plan ul{list-style:none;padding:0;margin:22px 0 28px;text-align:left;display:inline-block}
+.plan li{padding:5px 0 5px 28px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:800}
+
+/* Skrip */
+.scripts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.scripts span{padding:10px 20px;border:1px solid var(--line);background:var(--card);border-radius:99px;font-weight:600}
+
+/* FAQ */
+details{max-width:760px;margin:0 auto;border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--blue);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:10px 0 0;color:var(--muted)}
+
+.final{background:var(--navy);color:#fff;text-align:center}
+.final p{color:#b9cbe3;margin:12px 0 26px}
+.ad{min-height:90px;text-align:center;margin:0 auto;max-width:1080px;padding:0 22px}
+
+footer{background:#071427;color:#9fb2cb;padding:44px 0 30px;font-size:.93rem}
+.fgrid{display:grid;gap:28px;grid-template-columns:2fr 1fr 1fr}
+@media(max-width:640px){.fgrid{grid-template-columns:1fr}}
+footer h4{color:#fff;margin:0 0 10px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:6px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.copy{border-top:1px solid #16294a;margin-top:28px;padding-top:18px;text-align:center}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="/">Nama<b>Hosting</b></a>
+    <nav aria-label="Menu utama">
+      <ul>
+        <li><a href="#fitur">Fitur</a></li>
+        <li><a href="#harga">Paket</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="/login">Masuk</a></li>
+        <li><a class="btn" href="/daftar">Daftar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <h1>Hosting web gratis untuk proyek Anda.</h1>
+        <p class="sub">Luncurkan situs dengan PHP, MySQL, dan panel kontrol yang mudah. Daftar tanpa kartu kredit dan langsung online.</p>
+        <a class="cta" href="/daftar">Daftar sekarang</a><a class="cta ghost" href="#fitur">Lihat fitur</a>
+      </div>
+      <!-- Ganti angka di bawah dengan spesifikasi layanan Anda yang SEBENARNYA -->
+      <div class="chips" aria-label="Ringkasan paket">
+        <div class="chip"><strong>5 GB</strong><span>Ruang penyimpanan</span></div>
+        <div class="chip"><strong>MySQL</strong><span>Basis data</span></div>
+        <div class="chip"><strong>PHP 8</strong><span>Versi terbaru</span></div>
+        <div class="chip"><strong>Rp0</strong><span>Tanpa biaya tersembunyi</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fitur">
+    <div class="wrap">
+      <div class="title">
+        <h2>Mengapa memilih kami</h2>
+        <p>Semua yang Anda perlukan untuk membuat, mengelola, dan mengembangkan situs web.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="ic"></div><h3>Panel kontrol mudah</h3><p>Kelola seluruh situs dari satu area klien yang ramah pemula, mulai dari berkas, basis data, sampai email.</p></article>
+        <article class="card"><div class="ic"></div><h3>Pemasang skrip satu klik</h3><p>Pasang WordPress, Joomla, dan ratusan aplikasi lain dengan satu klik lewat penginstal skrip otomatis.</p></article>
+        <article class="card"><div class="ic"></div><h3>PHP dan MySQL</h3><p>Dukungan PHP versi terbaru, MySQL, dan .htaccess sehingga hampir semua jenis situs bisa dijalankan.</p></article>
+        <article class="card"><div class="ic"></div><h3>Email dengan domain sendiri</h3><p>Buat alamat email profesional memakai nama domain Anda untuk bisnis maupun proyek pribadi.</p></article>
+        <article class="card"><div class="ic"></div><h3>Bantuan komunitas</h3><p>Dapatkan bantuan lewat forum atau kirim tiket dukungan langsung dari panel akun Anda.</p></article>
+        <article class="card"><div class="ic"></div><h3>Pendaftaran instan</h3><p>Tanpa kartu kredit dan tanpa proses panjang. Isi data singkat dan akun Anda siap dipakai.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="price" id="harga">
+    <div class="wrap">
+      <div class="title"><h2>Satu paket, gratis</h2><p>Ubah isi daftar ini sesuai paket yang benar-benar Anda tawarkan.</p></div>
+      <div class="plan">
+        <div class="amt">Rp0</div>
+        <div style="color:var(--muted)">selamanya</div>
+        <ul>
+          <li>5 GB ruang penyimpanan</li>
+          <li>Bandwidth tanpa batas</li>
+          <li>Basis data MySQL</li>
+          <li>Subdomain gratis</li>
+          <li>Panel kontrol dan pembuat situs</li>
+        </ul><br>
+        <a class="cta" style="background:var(--blue);color:#fff" href="/daftar">Mulai gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="title"><h2>Aplikasi populer, satu klik</h2></div>
+      <div class="scripts">
+        <span>WordPress</span><span>Joomla</span><span>Drupal</span><span>PrestaShop</span><span>MyBB</span><span>Magento</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad">
+    <!-- Ganti data-ad-slot dengan ID unit iklan Anda -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8476774265191060" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="title"><h2>Pertanyaan umum</h2></div>
+      <details><summary>Apakah benar-benar gratis?</summary><p>Ya, paket dasar tidak dipungut biaya. Tuliskan di sini apa saja batasannya, misalnya penggunaan wajar dan aturan konten.</p></details>
+      <details><summary>Apakah situs saya akan diberi iklan paksa?</summary><p>Isi sesuai kebijakan Anda. Jangan menulis "tanpa iklan" jika layanan Anda sebenarnya menayangkan iklan.</p></details>
+      <details><summary>Bisakah saya memakai domain sendiri?</summary><p>Jelaskan apakah pengguna dapat menghubungkan domain sendiri, atau hanya subdomain gratis dari Anda.</p></details>
+      <details><summary>Bagaimana jika saya butuh bantuan?</summary><p>Hubungi kami lewat forum atau tiket dukungan dari panel akun. Cantumkan juga jam respons yang realistis.</p></details>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Siap meluncurkan situs Anda?</h2>
+      <p>Buat akun dalam hitungan menit.</p>
+      <a class="cta" href="/daftar">Daftar gratis</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>NamaHosting</h4><p>Layanan hosting web gratis untuk penggunaan pribadi maupun komersial.</p></div>
+      <div><h4>Perusahaan</h4><ul><li><a href="/syarat.html">Syarat Layanan</a></li><li><a href="/privasi.html">Kebijakan Privasi</a></li><li><a href="/kontak.html">Kontak</a></li></ul></div>
+      <div><h4>Bantuan</h4><ul><li><a href="/forum">Forum</a></li><li><a href="/bantuan">Dukungan</a></li></ul></div>
+    </div>
+    <div class="copy">© <span id="yr"></span> NamaHosting. Hak cipta dilindungi.</div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
